@@ -18,7 +18,8 @@ const ContactState = props => {
         id: 1,
         name: 'Jill Johnson',
         phone: '111-111-1111',
-        type: 'personal'
+        type: 'personal',
+        email: 'test@test.com'
       },
       {
         id: 2,
@@ -54,7 +55,7 @@ const ContactState = props => {
   return (
     <ContactContext.Provider 
       value={{
-        contacs: state.contacts
+        contacts: state.contacts
       }}
     >
       { props.children }
