@@ -38,10 +38,10 @@ const AuthState = props => {
     <AuthContext.Provider 
       value={{
        token: state.token,
-       token: state.isAuthenticated,
-       token: state.loading,
-       token: state.user,
-       token: state.error
+       isAuthenticated: state.isAuthenticated,
+       loading: state.loading,
+       user: state.user,
+       error: state.error
       }}
     >
       { props.children }
