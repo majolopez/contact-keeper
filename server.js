@@ -9,10 +9,12 @@ app.use(express.json({ extended: false }));
 
 connectDB();
 
-
+if(process.env.NODE_ENV !== 'production'){
+  //Set static folder
+  app.get('/', (req, res) => res.json({msg:'Welcome to the contact keeper app..'}));
+}
 
 //Define routes
-
 app.use('/api/users', require('./routes/users'));
 app.use('/api/contacts', require('./routes/contacts'));
 app.use('/api/auth', require('./routes/auth'));
@@ -22,7 +24,7 @@ if(process.env.NODE_ENV === 'production'){
   //Set static folder
   app.use(express.static('clinet/build'));
 
-  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')));
+  app.get('*', (req, res) => res.sendFile());
 }
 
 const PORT = process.env.PORT || 5000;
